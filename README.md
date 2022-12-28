@@ -7,8 +7,7 @@
   <img src="meta_info/motion_planning.png" width = "1200" />
 </p>
 
-- Section 0 :alien:	
-    - Introduction [:books:] 
+- Introduction [:books:] 
 
 - Introduction to Optimization  [:books:]
 		<ul>
