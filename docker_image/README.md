@@ -1,4 +1,4 @@
-# To install docker image 
+# To give executable permission 
     
     chmod +x server.sh
 
