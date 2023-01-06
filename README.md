@@ -181,3 +181,7 @@
 
 [14]. Kulathunga, G., & Klimchik, A. (2022). Optimization-based Motion Planning for Multirotor Aerial Vehicles: a Review. arXiv preprint arXiv:2208.14647.
 
+[15]. Mellinger D, Kumar V. Minimum snap trajectory generation and control for quadrotors[C]//Robotics and Automation (ICRA), 2011 IEEE International Conference on. IEEE, 2011: 2520-2525.
+
+[16]：Polynomial Trajectory Planning for Aggressive Quadrotor Flight in Dense Indoor Environments, Charles Richter, Adam Bry, and Nicholas Roy
+
