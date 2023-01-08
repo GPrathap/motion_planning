@@ -135,6 +135,7 @@
             <li>    Nonlinear curve fitting </li>
               <li>  Bezier curve fitting </li>
               <li>  B-spline curve fitting </li>
+              <li> Minimum-snap curve fitting </li> 
 		</ul>
 - Frenet frame trajectory planning [:books:]
 	<ul>
