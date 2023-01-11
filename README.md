@@ -152,6 +152,15 @@
         <li> Frenet frame trajectory generation algorithm </li>
         <li> Calculate global trajectories </li>
 	</ul>
+- Timed Elastic Band [:books:]
+    <ul>
+            <li>Elastic band and time elastic band </li>
+            <li> Way points and obstacles: polynomial approximation
+of constraints</li>
+            <li> Estimate the position of a given Spline </li>
+            <li> Velocity and acceleration generation </li>
+            <li> Non-holonomic kinematics  </li>
+    </ul>  
 
 # References 
 [1]. Werling, M., Ziegler, J., Kammel, S., & Thrun, S. (2010, May). Optimal trajectory generation for dynamic street scenarios in a frenet frame. In 2010 IEEE International Conference on Robotics and Automation (pp. 987-993). IEEE.
@@ -185,4 +194,6 @@
 [15]. Mellinger D, Kumar V. Minimum snap trajectory generation and control for quadrotors[C]//Robotics and Automation (ICRA), 2011 IEEE International Conference on. IEEE, 2011: 2520-2525.
 
 [16]. Polynomial Trajectory Planning for Aggressive Quadrotor Flight in Dense Indoor Environments, Charles Richter, Adam Bry, and Nicholas Roy
+
+[17]. Rösmann, C., Feiten, W., Wösch, T., Hoffmann, F.,  Bertram, T. (2012, May). Trajectory modification considering dynamic constraints of autonomous robots. In ROBOTIK 2012; 7th German Conference on Robotics (pp. 1-6). VDE.
 
