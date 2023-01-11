@@ -196,3 +196,5 @@
 
 [17]. Rösmann, C., Feiten, W., Wösch, T., Hoffmann, F.,  Bertram, T. (2012, May). Trajectory modification considering dynamic constraints of autonomous robots. In ROBOTIK 2012; 7th German Conference on Robotics (pp. 1-6). VDE.
 
+[18]. Rösmann, C., Hoffmann, F., & Bertram, T. (2017). Integrated online trajectory planning and optimization in distinctive topologies. Robotics and Autonomous Systems, 88, 142-153.
+
