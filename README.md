@@ -154,12 +154,11 @@
 	</ul>
 - Timed Elastic Band [:books:]
     <ul>
-            <li>Elastic band and time elastic band </li>
-            <li> Way points and obstacles: polynomial approximation
-of constraints</li>
-            <li> Estimate the position of a given Spline </li>
-            <li> Velocity and acceleration generation </li>
-            <li> Non-holonomic kinematics  </li>
+        <li> Elastic band and time elastic band </li>
+        <li> Way points and obstacles: polynomial approximation of constraints</li>
+        <li> Estimate the position of a given Spline </li>
+        <li> Velocity and acceleration generation </li>
+        <li> Non-holonomic kinematics  </li>
     </ul>  
 
 # References 
