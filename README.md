@@ -160,6 +160,14 @@
         <li> Velocity and acceleration generation </li>
         <li> Non-holonomic kinematics  </li>
     </ul>  
+- Gradient-based online trajectory generation [:books:]
+    <ul>
+        <li> Piecewise polynomial trajectory generation </li>
+        <li> Formulation of the objective function </li>
+        <li> The cost of the smoothness  </li>
+        <li> The cost of the clearance </li>
+        <li> The cost of the dynamic feasibility  </li>
+    </ul>  
 
 # References 
 [1]. Werling, M., Ziegler, J., Kammel, S., & Thrun, S. (2010, May). Optimal trajectory generation for dynamic street scenarios in a frenet frame. In 2010 IEEE International Conference on Robotics and Automation (pp. 987-993). IEEE.
@@ -198,3 +206,4 @@
 
 [18]. Rösmann, C., Hoffmann, F., & Bertram, T. (2017). Integrated online trajectory planning and optimization in distinctive topologies. Robotics and Autonomous Systems, 88, 142-153.
 
+[19]. Gao, F., Lin, Y.,  Shen, S. (2017, September). Gradient-based online safe trajectory generation for quadrotor flight in complex environments. In 2017 IEEE/RSJ international conference on intelligent robots and systems (IROS) (pp. 3681-3688). IEEE. 
