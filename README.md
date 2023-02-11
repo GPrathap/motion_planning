@@ -7,9 +7,9 @@
   <img src="meta_info/motion_planning.png" width = "1200" />
 </p>
 
-- Introduction [:books:] 
+- Introduction [:books:](lectures/mpav_introduction.pdf) 
 
-- Introduction to Optimization  [:books:]
+- Introduction to Optimization [:books:]
 		<ul>
 			<li>Constrained optimization</li>
             <li>Least squares fitting</li>
