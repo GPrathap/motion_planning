@@ -1,0 +1,29 @@
+plugins: 
+  - {name : static_map, type : "costmap_2d::StaticLayer"}
+  - {name : obstacles, type : "costmap_2d::VoxelLayer"}
+
+global_frame : "map"
+robot_base_frame : "base_link"
+
+transform_tolerance : 200
+inflation_radius : 0.5
+footprint: [[0.10, -0.25], [0.10, 0.25], [-0.80, 0.25], [-0.80, -0.25]]
+
+obstacles : 
+  observation_sources: /prius/front_left_laser
+  /prius/front_left_laser : {
+    data_type: LaserScan,
+    clearing: true,
+    marking: true,
+    topic: /scan,
+    inf_is_valid: true}
+
+  observation_sources: /prius/front_right_laser 
+  /prius/front_right_laser: {
+    data_type: LaserScan,
+    clearing: true,
+    marking: true,
+    topic: /scan,
+    inf_is_valid: true}
+
+

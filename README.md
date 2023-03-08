@@ -9,7 +9,7 @@
 
 - Introduction [:books:](lectures/mpav_introduction.pdf) 
 
-- Introduction to Optimization [:books:]
+- Introduction to Optimization [:books:](lectures/mpav_introduction_to_optimization.pdf)
 		<ul>
 			<li>Constrained optimization</li>
             <li>Least squares fitting</li>
@@ -21,7 +21,7 @@
             <li>Quadratic problems</li>
             <li>Linear problems</li>
 		</ul>
-- Variation of Calculus [:books: ]
+- Variation of Calculus [:books:](lectures/mpav_variation_of_calculas.pdf) 
 	 	<ul>
 	      <li>Extremum
           <li>  Convexity</li>
@@ -36,7 +36,7 @@
           <li>  Free endpoint problem: if t f and x(t f ) are depended on each other</li>
 	    </ul>
 
-- Hamiltonian (Optimal control theory) [:books:]
+- Hamiltonian (Optimal control theory)[:books:](lectures/mpav_hamiltonian_optimal_control_theory.pdf)
 		<ul>
 			<li> Constrained Minimization of functions </li>
             <ul>
@@ -54,7 +54,7 @@
             point x f = θ (t f ) , or lies on a moving surface m(x(t)) )  </li>
         </ul>
 
-- Pontryagin’s Minimum Principle [:books: ]
+- Pontryagin’s Minimum Principle [:books: ](lectures/mpav_pontryagin_s_optimal_control_theory.pdf)
 		<ul>
 			<li> Optimal control problem </li>
             <li> Pontryagin’s Minimum Principle </li>

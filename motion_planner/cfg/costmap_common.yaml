@@ -1,0 +1,101 @@
+# # footprint: [[0.10, -0.25], [0.10, 0.25], [-0.80, 0.25], [-0.80, -0.25]]
+# # footprint_padding: 0.01
+# # # robot_radius: 0.5
+
+robot_base_frame: base_link
+update_frequency: 4.0
+publish_frequency: 3.0
+transform_tolerance: 0.5
+
+resolution: 0.1
+
+# # obstacle_range: 7.5
+# # raytrace_range: 8.0
+
+# # #layer definitions
+# # static:
+# #     map_topic: /map
+# #     subscribe_to_updates: true
+
+# obstacles:
+#   observation_sources: laser_centre laser_right laser_left
+#   laser_centre: {data_type: PointCloud, clearing: true, marking: true, topic: /prius/center_laser/scan, inf_is_valid: true}
+#   laser_right: {data_type: LaserScan, clearing: true, marking: true, topic: /prius/front_right_laser/scan, inf_is_valid: true}
+#   laser_left: {data_type: LaserScan, clearing: true, marking: true, topic: /prius/front_left_laser/scan, inf_is_valid: true}
+
+# inflation:
+#     inflation_radius: 10
+
+# global_frame: /map
+# robot_base_frame: base_link
+# update_frequency: 50.0
+# publish_frequency: 100.0
+
+# #set if you want the voxel map published
+# publish_voxel_map: true
+
+# #set to true if you want to initialize the costmap from a static map
+# static_map: false
+
+# #begin - COMMENT these lines if you set static_map to true
+# rolling_window: true
+# width: 20
+# height: 20
+# resolution: 0.025
+# #end - COMMENT these lines if you set static_map to true
+
+# #START VOXEL STUFF
+# map_type: voxel
+# origin_z: 0.0
+# z_resolution: 0.2
+# z_voxels: 10
+# unknown_threshold: 10
+# mark_threshold: 0
+# #END VOXEL STUFF
+
+# transform_tolerance: 0.3
+# obstacle_range: 2.5
+# max_obstacle_height: 2.0
+# raytrace_range: 3.0
+# #footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
+# footprint: [[0.10, -0.25], [0.10, 0.25], [-0.80, 0.25], [-0.80, -0.25]]
+# #robot_radius: 0.46
+# footprint_padding: 0.01
+# inflation_radius: 0.55
+# cost_scaling_factor: 10.0
+# lethal_cost_threshold: 100
+#  observation_sources: laser_scan_sensor
+#  laser_scan_sensor: {sensor_frame: main_laser_link, data_type: LaserScan, topic: /prius/main_laser/scan, marking: true, clearing: true}
+
+footprint: [ [-0.1,-0.125], [0.5,-0.125], [0.5,0.125], [-0.1,0.125] ]
+
+
+transform_tolerance: 0.2
+map_type: costmap
+
+obstacle_layer:
+ enabled: true
+ obstacle_range: 25
+ raytrace_range: 30
+ inflation_radius: 0.5
+ track_unknown_space: true
+ combination_method: 1      
+
+ observation_sources: laser_right laser_left 
+ laser_scan_sensor: {sensor_frame: main_laser_link, data_type: LaserScan, topic: /prius/main_laser/scan, marking: true, clearing: true}
+ laser_right: {sensor_frame: front_right_laser_link, data_type: LaserScan, clearing: true, marking: true, topic: /prius/front_right_laser/scan, inf_is_valid: true}
+ laser_left: {sensor_frame: front_left_laser_link, data_type: LaserScan, clearing: true, marking: true, topic: /prius/front_left_laser/scan, inf_is_valid: true}
+ laser_centre: {sensor_frame: center_laser_link, data_type: PointCloud, clearing: true, marking: true, topic: /prius/center_laser/scan, inf_is_valid: true}
+
+#  observation_sources: laser_scan_sensor laser1_scan_sensor
+#  laser_scan_sensor: {sensor_frame: front_right_laser_link, data_type: LaserScan, topic: /scan_filtered_right , marking: true, clearing: true}
+#  laser1_scan_sensor: {sensor_frame: front_left_laser_link, data_type: LaserScan, topic: /scan_filtered_left , marking: true, clearing: true}
+ 
+inflation_layer:
+  enabled:              true
+  cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
+  inflation_radius:     0.5   # max. distance from an obstacle at which costs are incurred for planning paths.
+
+static_layer:
+  enabled:              false
+  map_topic:            "/map"

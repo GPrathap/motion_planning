@@ -1,0 +1,29 @@
+cost:
+  kj: 0.01
+  kt: 5
+  kd: 0.5
+  kd_v: 0.5
+  klat: 1.0
+  klon: 2.0
+
+path:
+  max_speed: 13.89
+  max_accel: 5.0
+  max_curvature: 2.0
+  max_road_width: 10.0
+  d_road_w: 1.0
+  dt: 0.2
+  maxt: 6.0
+  mint: 2.0
+  target_speed: 8.33
+  d_t_s: 1.389
+  n_s_sample: 1.5
+  robot_radius: 2.0
+  min_lat_vel: -1.0 
+  max_lat_vel: 1.0
+  d_d_ns: 0.5
+  max_shift_d: 3
+
+waypoints:
+  W_X: [38, 38, 38, 38, 38, 38, 38 , 38.21, 39.25, 42.56, 48.97, 61]
+  W_Y: [-57, -45, -32.0, -18.5, -12.0, 0.0, 12, 35, 42.89, 80.41, 131.48, 139.47]
