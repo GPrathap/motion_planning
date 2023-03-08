@@ -1,4 +1,6 @@
 #include <root_finder.h>
+#include <minimum_acceleration_obvp.h>
+#include <data_type.h>
 
 template <typename T>
 std::ostream&  operator<<(std::ostream& os, const std::vector<std::complex<T>>& v) { 
@@ -36,5 +38,13 @@ int main()
 
     std::cout<< "Root of the polynomial: " << std::endl;
     std::cout<< roots << std::endl;
+
+    // MinAccOBVP<Vec3d, double> min_acc_obvp;
+    // Vec3d start_p = {3, 4, 5};
+    // Vec3d end_p = {30, 40, 8};
+    // Vec3d start_v = {0, 0, 0};
+    // Vec3d end_v = {0, 0, 0};
+    // double optimal_cost = min_acc_obvp.min_acc_obvp(start_p, start_v, end_p, end_v);
+
     return 0;
 }

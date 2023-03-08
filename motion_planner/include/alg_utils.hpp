@@ -39,7 +39,7 @@ huristics_cost_t calculate_dijkstra_dis(const State start_pt, const State end_pt
 }
 
 template<typename State>
-huristics_cost_t optimal_boundary_value_problem(State start_ptr, State start_velocity, State target_ptr) {
+huristics_cost_t obvp(State start_ptr, State start_velocity, State target_ptr) {
     huristics_cost_t optimal_cost = std::numeric_limits<double>::max();
     double T = 0.0;
     auto start_position = start_ptr;
