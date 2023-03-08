@@ -42,7 +42,7 @@ add_executable( run_planner
     src/grid_graph.cpp
     src/planner.cpp
     src/vis_utils.cpp
-    src/a_star.cpp)
+    src/a_star_todo.cpp)
 
 target_link_libraries(run_planner 
     ${catkin_LIBRARIES}
