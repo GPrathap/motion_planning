@@ -39,7 +39,7 @@ void AStar<Graph, State>::breadthFirstSearch(const Vec3f &start_pt, const Vec3f 
         if (dist < graph_->resolution_) {
             terminate_ptr_ = current_node_ptr;
             ros::Duration use_time = ros::Time::now() - start_time;
-            ROS_INFO("\033[1;32m Breah first search uses time: %f (ms)\033[0m", use_time.toSec() * 1000);
+            ROS_INFO("\033[1;32m Breadth first search uses time: %f (ms)\033[0m", use_time.toSec() * 1000);
             return;
         }
 
@@ -54,18 +54,15 @@ void AStar<Graph, State>::breadthFirstSearch(const Vec3f &start_pt, const Vec3f 
             } 
         }
     }
-    ROS_WARN_STREAM(" Breah first search failed to search path!");
+    ROS_WARN_STREAM(" Breadth first search failed to search path!");
 }
 
 template<typename Graph, typename State>
 void AStar<Graph, State>::dijkstraSearchPath(const Vec3f &start_pt, const Vec3f &end_pt,
                      std::function<huristics_cost_t( typename State::Ptr a,  typename State::Ptr b)> calculate_huristics) {
-
     ros::Time start_time = ros::Time::now();
     Vec3i start_idx = graph_->coord2gridIndex(start_pt);
     Vec3i end_idx = graph_->coord2gridIndex(end_pt);
-
-    
     ROS_WARN_STREAM(" Dijkstra failed to search path!");
 }
 
