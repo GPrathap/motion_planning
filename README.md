@@ -91,7 +91,7 @@
             generation, dynamic model, and cost, formulation </li>
 		</ul>
 
-- Path planning   [:books: ] 
+- Path planning [:books:](lectures/mpav_graph_based_path_planning.pdf)
 		<ul>
 			<li> Configuration Space vs Search Space for Robot  </li>
             <li> Path Planning Problem Formulation  </li>
