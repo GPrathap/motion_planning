@@ -41,6 +41,8 @@ add_executable( run_planner
     src/run_planner.cpp
     src/grid_graph.cpp
     src/planner.cpp
+    src/rr_star_todo.cpp
+    src/rrt_todo.cpp
     src/vis_utils.cpp
     src/a_star_todo.cpp)
 

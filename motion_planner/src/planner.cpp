@@ -20,6 +20,8 @@ void Planner::init(ros::NodeHandle& nh){
     vis_util = std::make_shared<VisualizationUtils>();
     graph_ = std::make_shared<GridGraph3D>();
     _a_star = std::make_shared<AStar3D>();
+    _rrt = std::make_shared<RRT3D>();
+    _rrt_star = std::make_shared<RRTStar3D>();
 
     max_iteration = 10000;
     _map_sub = nh.subscribe("map", 1, &Planner::mapCallBack, this);
@@ -53,9 +55,12 @@ void Planner::init(ros::NodeHandle& nh){
 
     vis_util->init(nh, _map_resolution, _discretize_step);
     graph_->InitGridMap(_map_lower, _map_upper, Vector3i(_max_x_id, _max_y_id, _max_z_id), _map_resolution);
-    // graph_->InitGridMap(_map_resolution, _max_x_id, _max_y_id, params);
+    graph_->InitGridMap(_map_resolution, _max_x_id, _max_y_id, params);
 
     _a_star->setGraph(graph_);
+
+     _rrt->setGraph(graph_);
+    _rrt_star->setGraph(graph_);
 }
 
 void Planner::odomCallback(const nav_msgs::OdometryConstPtr& msg){
@@ -112,7 +117,30 @@ void Planner::waypointsCallback(const nav_msgs::Path &wp) {
     heuristic = &calculate_euclidean_dis<RobotNode::Ptr>;
     _a_star->searchPath(_start_pt, target_pt, heuristic);
     auto path_astar = _a_star->getPath();
-    vis_util->visAStarPath(path_astar);  
+    vis_util->visAStarPath(path_astar);
+
+    // ros::Time start  = ros::Time::now();
+    // graph_->reset();
+    // _rrt->setGraph(graph_);
+    
+    // if (_rrt->SearchPath(_start_pt, target_pt)) {
+    //     ros::Time end = ros::Time::now();
+    //     ros::Duration rrt_use_time = end - start;
+    //     ROS_INFO_STREAM("rrt path finding use time: " << rrt_use_time.toSec());
+    //     auto path_rrt = _rrt->GetPath();
+    //     vis_util->visRRTPath(path_rrt);
+    // }
+
+    // ros::Time start_rrt_star = ros::Time::now();
+    // graph_->reset();
+    // _rrt_star->setGraph(graph_);
+    // if (_rrt_star->SearchPath(_start_pt, target_pt)) {
+    //     ros::Time end_rrt_star = ros::Time::now();
+    //     ros::Duration rrt_star_use_time = end_rrt_star - start_rrt_star;
+    //     ROS_INFO_STREAM("rrt star path finding use time: " << rrt_star_use_time.toSec());
+    //     auto path_rrt_star = _rrt_star->GetPath();
+    //     vis_util->visRRTstarPath(path_rrt_star);
+    // }  
 }
 
 void Planner::setObstacles(){

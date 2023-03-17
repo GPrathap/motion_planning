@@ -25,7 +25,8 @@
 #include "a_star.h"
 #include <nav_msgs/OccupancyGrid.h>
 
-
+#include "rrt.h"
+#include "rrt_star.h"
 
 
 class Planner {
@@ -58,6 +59,8 @@ class Planner {
         std::shared_ptr<VisualizationUtils> vis_util;
         std::shared_ptr<GridGraph3D> graph_;
         std::shared_ptr<AStar3D> _a_star;
+        std::shared_ptr<RRT3D> _rrt;
+        std::shared_ptr<RRTStar3D> _rrt_star;
         
         nav_msgs::OccupancyGridPtr _cost_map_;
         std::deque<Eigen::Vector3d> waypoints_list;

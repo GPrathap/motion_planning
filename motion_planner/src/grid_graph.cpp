@@ -619,6 +619,7 @@ namespace hagen_planner
     }
 
 
+
     template<typename State>
     void GridGraph<State>::getNeighbors(TrajectoryStatePtr ***trajectory_state_ptr, std::vector< typename State::Ptr> &neighbors,
                             vector<TrajectoryStatePtr> &neighbors_traj_state, const int discretize_step_) {
