@@ -37,9 +37,9 @@ template<typename Graph, typename State>
 Eigen::Vector3d RRT<Graph, State>::Steer(const Eigen::Vector3d &rand_point,
                            const Eigen::Vector3d &near_point,
                            double step_size) {
-    Eigen::Vector3d steered_point;               
-    // TODO define your steer function
-    return steered_point;
+    Eigen::Vector3d direction = (rand_point - near_point).normalized();
+
+    return near_point + direction * step_size;
 }
 
 template<typename Graph, typename State>
@@ -79,12 +79,9 @@ bool RRT<Graph, State>::SearchPath(const Eigen::Vector3d &start_pt, const Eigen:
 
     ros::Time start_time = ros::Time::now();
     while (true) {
-        // TODO generate sample point, use graph_->Sample();
-        auto x_rand = graph_->Sample();
-        // TODO get near point (near_node_ptr) to the randomly generated point 
-        typename State::Ptr near_node_ptr;
-        // TODO Use the Steer function to get new point (new_point) 
-        Eigen::Vector3d new_point;
+        Eigen::Vector3d rand_point = graph_->Sample();
+        typename State::Ptr near_node_ptr = Near(rand_point);
+        Eigen::Vector3d new_point = Steer(rand_point, near_node_ptr->coordinate_, graph_->resolution_ * 2);
 
         if (!graph_->collisionFree(near_node_ptr->coordinate_, new_point)) {
             continue;
