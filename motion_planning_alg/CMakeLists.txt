@@ -12,7 +12,7 @@ find_package (Eigen3 REQUIRED)
 # include_directories(cmake-tutorial PUBLIC "${CMAKE_CURRENT_LIST_DIR}/include")
 # Add definition for the cmake-tutorial binary
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_executable(motion_planning src/main.cpp)
+add_executable(motion_planning src/main.cpp src/cubic_spline_todo.cpp)
 target_link_libraries(motion_planning Eigen3::Eigen)
 
 # Specify where third-party libraries are located

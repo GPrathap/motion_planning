@@ -99,6 +99,8 @@ typedef Matf<4, 4> Mat4f;
 /// 6x6 Matrix in float
 typedef Matf<6, 6> Mat6f;
 
+typedef std::vector<double> vec1D;
+
 
 typedef typename Eigen::Vector2d Vec2d;
 typedef typename Eigen::Vector3d Vec3d;
