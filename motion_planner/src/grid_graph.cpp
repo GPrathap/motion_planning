@@ -621,16 +621,16 @@ namespace hagen_planner
 
 
     template<typename State>
-    void GridGraph<State>::getNeighbors(TrajectoryStatePtr ***trajectory_state_ptr, std::vector< typename State::Ptr> &neighbors,
-                            vector<TrajectoryStatePtr> &neighbors_traj_state, const int discretize_step_) {
+    void GridGraph<State>::getNeighbors(MotionStateMapPtr motion_state_ptr, std::vector< typename State::Ptr> &neighbors,
+                            vector<MotionStatePtr> &neighbors_traj_state, const int max_allowed_steps_) {
         neighbors.clear();
         neighbors_traj_state.clear();
-        std::unordered_map<int, std::pair< typename State::Ptr, TrajectoryStatePtr>> candidates_grid_node_traj;
+        std::unordered_map<int, std::pair< typename State::Ptr, MotionStatePtr>> candidates_grid_node_traj;
         if constexpr (std::is_same_v<State, RobotNode>){
-                for (int i = 0; i < discretize_step_; ++i) {
-                for (int j = 0; j < discretize_step_; ++j) {
-                    for (int k = 0; k < discretize_step_; ++k) {
-                        auto current_trajectory_state_ptr = trajectory_state_ptr[i][j][k];
+                for (int i = 0; i < max_allowed_steps_; ++i) {
+                for (int j = 0; j < max_allowed_steps_; ++j) {
+                    for (int k = 0; k < max_allowed_steps_; ++k) {
+                        auto current_trajectory_state_ptr = motion_state_ptr[i][j][k];
 
                         if (current_trajectory_state_ptr->collision_check) {
                             delete current_trajectory_state_ptr;
@@ -647,8 +647,8 @@ namespace hagen_planner
                             current_grid_node_ptr->robot_state_ = coord_end;
                             candidates_grid_node_traj[index] = std::make_pair(current_grid_node_ptr, current_trajectory_state_ptr);
                         } else {
-                            if (current_trajectory_state_ptr->Trajctory_Cost <
-                                candidates_grid_node_traj[index].second->Trajctory_Cost) {
+                            if (current_trajectory_state_ptr->MotionState_Cost <
+                                candidates_grid_node_traj[index].second->MotionState_Cost) {
                                 typename State::Ptr current_grid_node_ptr;
                                 current_grid_node_ptr = GridNodeMap_[index_end.x()][index_end.y()][index_end.z()];
                                 current_grid_node_ptr->robot_state_ = coord_end;

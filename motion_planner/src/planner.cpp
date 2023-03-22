@@ -22,8 +22,9 @@ void Planner::init(ros::NodeHandle& nh){
     _a_star = std::make_shared<AStar3D>();
     _rrt = std::make_shared<RRT3D>();
     _rrt_star = std::make_shared<RRTStar3D>();
-
+    _kinodynamic_astar = std::make_shared<KinoAStar3D>();
     max_iteration = 10000;
+
     _map_sub = nh.subscribe("map", 1, &Planner::mapCallBack, this);
     _pts_sub = nh.subscribe("waypoints", 1, &Planner::waypointsCallback, this);
     _cost_map_sub = nh.subscribe("/projected_map", 1, &Planner::costMapCallBack, this);
@@ -59,8 +60,10 @@ void Planner::init(ros::NodeHandle& nh){
 
     _a_star->setGraph(graph_);
 
-     _rrt->setGraph(graph_);
-    _rrt_star->setGraph(graph_);
+    // _rrt->setGraph(graph_);
+    // _rrt_star->setGraph(graph_);
+
+    _kinodynamic_astar->setGraph(graph_);
 }
 
 void Planner::odomCallback(const nav_msgs::OdometryConstPtr& msg){
@@ -98,12 +101,18 @@ void Planner::waypointsCallback(const nav_msgs::Path &wp) {
     Vec3f target_pt;
     target_pt << wp.poses[0].pose.position.x, wp.poses[0].pose.position.y, 0.0;
     
+    std::function<huristics_cost_t(Vec3f, Vec3f, Vec3f)> heuristic_optimal_bvp = &min_acc_obvp<Vec3f>;
+    MotionStatePtr*** trajectory_lib = _kinodynamic_astar->motionPrimitiveSet(_start_pt, _start_velocity, target_pt, heuristic_optimal_bvp);
+    vis_util->visTraLibrary(trajectory_lib);
+    _kinodynamic_astar->searchPath(_start_pt, target_pt, heuristic_optimal_bvp);
+    auto path = _kinodynamic_astar->getPath();
+    vis_util->visKinoAStarPath(path);
+
     std::function<huristics_cost_t(RobotNode::Ptr,  RobotNode::Ptr)> heuristic = &calculate_dijkstra_dis<RobotNode::Ptr>;
     graph_->reset();
     _a_star->setGraph(graph_);
     _a_star->dijkstraSearchPath(_start_pt, target_pt, heuristic);
     auto path_dijkstra = _a_star->getPath();
-    std::cout<< "path length: "<< path_dijkstra.size() << std::endl;
     vis_util->visDijkstraPath(path_dijkstra);
 
     graph_->reset();
@@ -118,6 +127,23 @@ void Planner::waypointsCallback(const nav_msgs::Path &wp) {
     _a_star->searchPath(_start_pt, target_pt, heuristic);
     auto path_astar = _a_star->getPath();
     vis_util->visAStarPath(path_astar);
+
+    ros::Time start_hybrid_astar_time = ros::Time::now();
+    auto hybrid_astar_ = std::make_shared<kinematicAStar2D>(params, max_iteration);
+    graph_->InitGridMap(_map_resolution, _max_x_id, _max_y_id, params);
+    setObstacles();
+    hybrid_astar_->setGraph(graph_);
+    ros::Duration kinodynamic_astar_use_time;
+    if (hybrid_astar_->Search(_start_pt, target_pt)) {
+        auto path_fitted = hybrid_astar_->GetPath();
+        ros::Time end_hybrid_astar_time = ros::Time::now();
+        kinodynamic_astar_use_time = end_hybrid_astar_time - start_hybrid_astar_time;
+        vis_util->visKinematicAStarPath(path_fitted, params.vehicle_length, params.vehicle_width, 5u);
+        hybrid_astar_->Reset();
+        ROS_INFO("\033[1;32m Hybrid Astar use time: %f (ms)\033[0m", kinodynamic_astar_use_time.toSec() * 1000);
+    }else{
+        ROS_INFO("\033[1;32m Hybrid Astar can not find a path: %f (ms)\033[0m", kinodynamic_astar_use_time.toSec() * 1000);
+    }  
 
     // ros::Time start  = ros::Time::now();
     // graph_->reset();

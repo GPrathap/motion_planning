@@ -39,7 +39,7 @@ struct RobotNode {
 
     double g_score_{}, f_score_{};
 
-    TrajectoryStatePtr trajectory_;//from parent to current
+    MotionStatePtr trajectory_;//from parent to current
     Ptr parent_node_;
 
     explicit RobotNode(Vec3i robot_grid_index, Vec3f robot_state) {

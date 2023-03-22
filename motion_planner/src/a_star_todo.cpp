@@ -89,7 +89,7 @@ void AStar<Graph, State>::dijkstraSearchPath(const Vec3f &start_pt, const Vec3f 
         if (dist < graph_->resolution_) {
             terminate_ptr_ = current_node_ptr;
             ros::Duration use_time = ros::Time::now() - start_time;
-            ROS_INFO("\033[1;32m Dijkstra use time: %f (ms)\033[0m", use_time.toSec() * 1000);
+            ROS_INFO("\033[1;32m Dijkstra uses time: %f (ms)\033[0m", use_time.toSec() * 1000);
             return;
         }
 

@@ -202,8 +202,8 @@ int main (int argc, char** argv)
    n.param("map/y_size",  _y_size, 50.0);
    n.param("map/z_size",  _z_size, 5.0 );
 
-   n.param("map/obs_num",    _obs_num,  30);
-   n.param("map/circle_num", _cir_num,  30);
+   n.param("map/obs_num",    _obs_num,  1);
+   n.param("map/circle_num", _cir_num,  1);
    n.param("map/resolution", _map_resolution, 0.2);
 
    n.param("ObstacleShape/lower_rad", _w_l,   0.3);

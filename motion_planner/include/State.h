@@ -9,28 +9,29 @@
 #include "backward.hpp"
 #include "data_type.h"
 
-struct TrajectoryState;
-typedef TrajectoryState *TrajectoryStatePtr;
+struct MotionState;
+typedef MotionState *MotionStatePtr;
+typedef MotionStatePtr ***MotionStateMapPtr;
 
-struct TrajectoryState {
+struct MotionState {
     std::vector<Vec3f> Position;
     std::vector<Vec3f> Velocity;
-    double Trajctory_Cost;
-    bool collision_check;           //False -> no collision, True -> collision
-    bool optimal_flag;               //False -> not optimal in traj_library_, True -> optimal in traj_library_,
+    double MotionState_Cost;
+    bool collision_check; 
+    bool optimal_flag;
 
-    TrajectoryState(std::vector<Vec3f> _Position, std::vector<Vec3f> _Velocity,
-                    double _Trajctory_Cost) {
+    MotionState(std::vector<Vec3f> _Position, std::vector<Vec3f> _Velocity,
+                    double _motion_cost) {
         Position = std::move(_Position);
         Velocity = std::move(_Velocity);
-        Trajctory_Cost = _Trajctory_Cost;
+        MotionState_Cost = _motion_cost;
         collision_check = false;
         optimal_flag = false;
     }
 
-    TrajectoryState() {};
+    MotionState() {};
 
-    ~TrajectoryState() {};
+    ~MotionState() {};
 
     void setCollisionfree() {
         collision_check = true;

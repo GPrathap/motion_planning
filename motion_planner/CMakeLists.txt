@@ -44,6 +44,9 @@ add_executable( run_planner
     src/rr_star_todo.cpp
     src/rrt_todo.cpp
     src/vis_utils.cpp
+    src/kino_a_star_todo.cpp
+    src/kinematic_a_star.cpp
+    src/rs_paths.cpp 
     src/a_star_todo.cpp)
 
 target_link_libraries(run_planner 

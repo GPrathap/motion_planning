@@ -276,7 +276,7 @@ void VisualizationUtils::visRRTstarPath(std::vector<Vec3f> nodes) {
     _RRTstar_path_vis_pub.publish(Line);
 }
 
-void VisualizationUtils::visTraLibrary(TrajectoryStatePtr ***TraLibrary) {
+void VisualizationUtils::visTraLibrary(MotionStateMapPtr TraLibrary) {
     double _map_resolution = 0.2;
     visualization_msgs::MarkerArray LineArray;
     visualization_msgs::Marker Line;

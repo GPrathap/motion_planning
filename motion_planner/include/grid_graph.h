@@ -34,8 +34,8 @@ class GridGraph {
     Vec3i coord2gridIndex(const Vec3f &pt);
     Vec3f coordRounding(const Vec3f &coord);
     void getNeighbors(typename State::Ptr currentPtr, std::vector< typename State::Ptr> &neighbors);
-    void getNeighbors(TrajectoryStatePtr ***trajectory_state_ptr, std::vector< typename State::Ptr> &neighbors,
-                                                                          std::vector<TrajectoryStatePtr> &neighbors_traj_state, const int discretize_step);
+    void getNeighbors(MotionStateMapPtr motion_state_ptr, std::vector< typename State::Ptr> &neighbors,
+                                                                          std::vector<MotionStatePtr> &neighbors_traj_state, const int discretize_step);
     
     Eigen::Vector3d checkPointRange(const Eigen::Vector3d &point);
     void setObs(const Eigen::Vector3d &obstacle_coord);

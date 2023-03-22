@@ -34,7 +34,7 @@ class VisualizationUtils {
         void visAStarPath(const std::vector<Vec3f> &path);
         void visDijkstraPath(const std::vector<Vec3f> &path);
         void visBreathFirstSearchPath(const std::vector<Vec3f> &path);
-        void visTraLibrary(TrajectoryStatePtr ***TraLibrary);
+        void visTraLibrary(MotionStateMapPtr motionPrimitives);
         void visPointCloud(pcl::PointCloud<pcl::PointXYZ> &cloud_vis);
         void visRRTPath(std::vector<Vec3f> nodes);
         void visRRTstarPath(std::vector<Vec3f> nodes);

@@ -22,11 +22,13 @@
 #include "State.h"
 #include "vis_utils.h"
 #include "grid_graph.h"
-#include "a_star.h"
 #include <nav_msgs/OccupancyGrid.h>
 
+#include "a_star.h"
 #include "rrt.h"
 #include "rrt_star.h"
+#include "kino_a_star.h"
+#include "kinematic_a_star.h"
 
 
 class Planner {
@@ -61,6 +63,8 @@ class Planner {
         std::shared_ptr<AStar3D> _a_star;
         std::shared_ptr<RRT3D> _rrt;
         std::shared_ptr<RRTStar3D> _rrt_star;
+        std::shared_ptr<KinoAStar3D> _kinodynamic_astar;
+    
         
         nav_msgs::OccupancyGridPtr _cost_map_;
         std::deque<Eigen::Vector3d> waypoints_list;
