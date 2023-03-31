@@ -3,6 +3,9 @@
 #include <data_type.h>
 #include <cubic_spline_interpolation.h>
 
+#include <motion_model.h>
+#include <lqr_controller.h>
+
 template <typename T>
 std::ostream&  operator<<(std::ostream& os, const std::vector<std::complex<T>>& v) { 
     os << "[";
@@ -25,16 +28,23 @@ std::ostream &operator<<(std::ostream &os, std::vector<T> V)
 
 int main()
 {
+
     // Related to hw2 02
-    vec1D knots = {3, 6, 9};
-    vec1D control_points = {4 , 6, 10};
+    vec1D knots = {3, 6, 9, 12};
+    vec1D control_points = {4 , 6, 10, 5};
 	
 	Spline1D spline1d;
     spline1d.init(knots, control_points);
     
-    std::cout << spline1d.cal(3) << std::endl;
-    std::cout << spline1d.cal(6) << std::endl;
-    std::cout << spline1d.cal(9) << std::endl;
+    // std::cout << spline1d.cal(3) << std::endl;
+    // std::cout << spline1d.cal(6) << std::endl;
+    // std::cout << spline1d.cal(9) << std::endl;
+
+    // std::cout << rx << std::endl;
+    // std::cout << ry << std::endl;
+
+
+    // std::cout << spline1d.cal(9) << std::endl;
     
     // Related to hw 01 
     // //setting coefficient of polynomial
