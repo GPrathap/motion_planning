@@ -10,3 +10,8 @@
 
     cd motion_planning_alg/build
     ./motion_planning
+    
+## How to run the reference trajectory tracker 
+
+    cd motion_planning_alg/build
+    ./lqr_controller
