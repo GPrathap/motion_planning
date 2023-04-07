@@ -29,22 +29,17 @@ std::ostream &operator<<(std::ostream &os, std::vector<T> V)
 int main()
 {
 
-    // Related to hw2 02
+    // Related to hw2 
+
     vec1D knots = {3, 6, 9, 12};
     vec1D control_points = {4 , 6, 10, 5};
 	
 	Spline1D spline1d;
     spline1d.init(knots, control_points);
     
-    // std::cout << spline1d.cal(3) << std::endl;
-    // std::cout << spline1d.cal(6) << std::endl;
-    // std::cout << spline1d.cal(9) << std::endl;
-
-    // std::cout << rx << std::endl;
-    // std::cout << ry << std::endl;
-
-
-    // std::cout << spline1d.cal(9) << std::endl;
+    std::cout << spline1d.cal(3) << std::endl;
+    std::cout << spline1d.cal(6) << std::endl;
+    std::cout << spline1d.cal(9) << std::endl;
     
     // Related to hw 01 
     // //setting coefficient of polynomial
