@@ -108,21 +108,50 @@ MotionStateMapPtr KinoAStar<Graph, State>::motionPrimitiveSet(const Vec3f &start
         for (int j = 0; j <= max_allowed_steps_; j++) {
             motionPrimitives[i][j] = new MotionStatePtr[max_allowed_steps_ + 1];
             for (int k = 0; k <= max_allowed_steps_; k++) {
+
                 vector<Vector3d> Position;
                 vector<Vector3d> Velocity;
 
-                // TODO calculate acc_input 
-               
-                // TODO append start position and velocity into Position and Velocity, respectively. 
-                
+                acc_input(0) = double(-max_input_acc_ + i * (2 * max_input_acc_ / double(max_allowed_steps_)));
+                acc_input(1) = double(-max_input_acc_ + j * (2 * max_input_acc_ / double(max_allowed_steps_)));
+                acc_input(2) = double(k * (2 * max_input_acc_ / double(max_allowed_steps_)));
+
+                pos(0) = start_pt(0);
+                pos(1) = start_pt(1);
+                pos(2) = start_pt(2);
+                vel(0) = start_velocity(0);
+                vel(1) = start_velocity(1);
+                vel(2) = start_velocity(2);
+                Position.push_back(pos);
+                Velocity.push_back(vel);
+
                 bool collision = false;
                 double delta_time;
-                // TODO estimate delta_time, you may use time_interval_ and time_step_ values appropriately 
-                
-                // TODO estimate trajectory, i.e., pos, vel, over each from the current pos to time_step_ times based on acceleration (acc_input)
+                delta_time = time_interval_ / double(time_step_);
+
+                for (int step = 0; step <= time_step_; step++) {
+                    pos = pos + vel * delta_time + 0.5 * acc_input * delta_time * delta_time;
+                    vel = vel + acc_input * delta_time;
+
+                    Position.push_back(pos);
+                    Velocity.push_back(vel);
+                    double coord_x = pos(0);
+                    double coord_y = pos(1);
+                    double coord_z = pos(2);
+                    if (graph_->isObsFree(coord_x, coord_y, coord_z) != 1) {
+                        collision = true;
+                    }
+                }
                 MotionState_Cost = calculate_huristics_(pos, vel, target_pt);
                 motionPrimitives[i][j][k] = new MotionState(Position, Velocity, MotionState_Cost);
-                // TODO estimate minimum cost index, i.e., a, b, c
+                if (collision)
+                    motionPrimitives[i][j][k]->setCollisionfree();
+                if (MotionState_Cost < min_Cost && !motionPrimitives[i][j][k]->collision_check) {
+                    a = i;
+                    b = j;
+                    c = k;
+                    min_Cost = MotionState_Cost;
+                }
             }
         }
     }
