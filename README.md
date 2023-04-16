@@ -11,15 +11,15 @@
 
 - Introduction to Optimization [:books:](lectures/mpav_introduction_to_optimization.pdf)
 		<ul>
-			<li>Constrained optimization</li>
-            <li>Least squares fitting</li>
-            <li>Least squares fitting with regularization</li>
-            <li>Smoothing</li>
-            <li>Penalty functions</li>
-            <li>Robust estimation</li>
-            <li>Feasible problems</li>
-            <li>Quadratic problems</li>
-            <li>Linear problems</li>
+			<li>Constrained optimization [:scroll:code](introduction_to_optimization/task_01.py)</li>
+            <li>Least squares fitting [:scroll:code](introduction_to_optimization/task_02.py)</li>
+            <li>Least squares fitting with regularization[:scroll:code](introduction_to_optimization/task_03.py)</li>
+            <li>Smoothing[:scroll:code](introduction_to_optimization/task_04.py)</li>
+            <li>Penalty functions[:scroll:code](introduction_to_optimization/task_05.py)</li>
+            <li>Robust estimation[:scroll:code](introduction_to_optimization/task_06.py)</li>
+            <li>Feasible problems[:scroll:code](introduction_to_optimization/task_07.py)</li>
+            <li>Quadratic problems[:scroll:code](introduction_to_optimization/task_08.py)</li>
+            <li>Linear problems[:scroll:code](introduction_to_optimization/task_10.py) [:scroll:code](introduction_to_optimization/task_11.py)</li>
 		</ul>
 - Variation of Calculus [:books:](lectures/mpav_variation_of_calculas.pdf) 
 	 	<ul>
@@ -63,7 +63,7 @@
             <li> Minimizing the square of acceleration </li>
 		</ul>
 
-- Linear Quadratic Regulator   [:books: ]
+- Linear Quadratic Regulator [:books:](lectures/mpav_linear_quadratic_regulator.pdf)
 		<ul>
 			<li> LQR Formulation </li>
             <li>    LQR via least squares </li>
@@ -75,7 +75,7 @@
             <li>    Optimal reference trajectory tracking with LQR </li>
 		</ul>
 	
-- Model Predictive Control (MPC) [:books: ]
+- Model Predictive Control (MPC)[:books:](lectures/mpav_model_predictive_control.pdf)
 		<ul>
 			<li> Ways to solve Optimal Control (OCP) Problems </li>
             <li> OCP Using Nonlinear Programming Problem (NLP) </li>
@@ -122,7 +122,7 @@
              </ul>
 		</ul>
 
-- Curve Fitting [:books:]
+- Curve Fitting [:books:](lectures/mpav_spline.pdf)
 		<ul>
 			<li>n degree polynomial fitting  </li>
             <li>    Euler–Lagrange equation  </li>
