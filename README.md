@@ -23,7 +23,7 @@
 		</ul>
 - Variation of Calculus [:books:](lectures/mpav_variation_of_calculas.pdf) 
 	 	<ul>
-	      <li>Extremum
+	      <li>Extremum [:scroll:code](variation_of_calculus/qt1.py) [:scroll:code](variation_of_calculus/qt2.py)
           <li>  Convexity</li>
            <li> Linearization of function up to the second variation</li>
           <li>  Incremental of a function</li>
@@ -60,7 +60,7 @@
             <li> Pontryagin’s Minimum Principle </li>
             <li> Optimal boundary value problem </li>
             <li> Minimizing the square of the jerk </li>
-            <li> Minimizing the square of acceleration </li>
+            <li> Minimizing the square of acceleration [:scroll:min_acc_obvp(line 41)](motion_planner/include/alg_utils.hpp) </li>
 		</ul>
 
 - Linear Quadratic Regulator [:books:](lectures/mpav_linear_quadratic_regulator.pdf)
@@ -69,7 +69,7 @@
             <li>    LQR via least squares </li>
             <li>    Hamilton Jacobi Bellman (HJB) Approach </li>
             <li>    Bellman Optimality </li>
-            <li>    LQR with HJB </li>
+            <li>    LQR with HJB [:scroll:DARE](motion_planning_alg/include/lqr_controller_todo.h) </li>
             <li>    Hamiltonian formulation to find the optimal control policy </li>
             <li>    Linear quadratic optimal tracking </li>
             <li>    Optimal reference trajectory tracking with LQR </li>
@@ -82,7 +82,7 @@
             <li> Model Predictive Control: Prediction model, Constraints </li>
             <li> Reference trajectory tracking </li>
             <li> Simplified Motion Model </li>
-            <li> With Multiple Shooting and direct collocation </li>
+            <li> With Multiple Shooting [:scroll:code](model_predictive_control/multiple_shotting_todo.py) and direct collocation [:scroll:code](model_predictive_control/direct_collocation_todo.py) </li>
             <li> Continuous nonlinear system linearization </li>
             <li> Discrete-time nonlinear system linearization </li>
             <li> Linear Time-Varying Model Predictive Control
@@ -100,24 +100,24 @@
             <li> Graph Searching  </li>
             <ul>
                 <li> Depth First Search </li>
-                <li> Breath First Search </li>
+                <li> Breath First Search [:scroll:code](motion_planner/src/a_star_todo.cpp) </li>
                 <li> Cost Consideration </li>
-                <li> Dijkstra’s Algorithm </li>
-                <li> Greedy Best First Search </li>
+                <li> Dijkstra’s Algorithm [:scroll:code](motion_planner/src/a_star_todo.cpp) </li>
+                <li> Greedy Best First Search [:scroll:code](motion_planner/src/a_star_todo.cpp) </li>
                 <li> A*: Combination of Greedy Best First Search and Dijkstra’s
-                Algorithm </li>
+                Algorithm [:scroll:code](motion_planner/src/a_star_todo.cpp) </li>
                 <li> A*: Design Consideration </li>
                 <li> Graph-based search problem classification </li>
                 <li> KinoDynamic A*:Heuristics, Generating motion primitives,
-                finding neighbors </li>
+                finding neighbors [:scroll:code](motion_planner/src/kino_a_star_todo.cpp) </li>
                 <li> Hybrid A*: Motion model, finding neighbors, cost to go h, and
-                cost so far g </li>
+                cost so far g [:scroll:code](motion_planner/src/kinematic_a_star_todo.cpp) </li>
             </ul>
             <li> Sampling-based path planning  </li>
              <ul>
                <li> Probabilistic Road Map (PRM) </li>
-                <li> Rapidly-exploring Random Tree (RRT) </li>
-                <li> Rapidly-exploring Random Tree* (RRT*) </li>
+                <li> Rapidly-exploring Random Tree (RRT) [:scroll:code](motion_planner/src/rrt_todo.cpp) </li>
+                <li> Rapidly-exploring Random Tree* (RRT*) [:scroll:code](motion_planner/src/rr_star_todo.cpp) </li>
                 <li> Pros and Cons of RRT and RRT* </li>
              </ul>
 		</ul>
@@ -130,7 +130,7 @@
             <li>    Quintic polynomial  </li>
             <li>    Lagrange polynomials  </li>
             <li>    Lagrange first-order, second-order, and nth-order interpolation </li>
-             <li>   Spline interpolation: Linear, Quadratic, and Cubic Spline </li>
+             <li>   Spline interpolation: Linear, Quadratic, and Cubic Spline [:scroll:Spine](motion_planning_alg/include/cubic_spline_interpolation.h)</li>
              <li>   Other types of curve fitting: Gradient descent, Double arc trajectory interpolation </li>
             <li>    Nonlinear curve fitting </li>
               <li>  Bezier curve fitting </li>
