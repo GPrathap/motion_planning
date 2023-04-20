@@ -1,5 +1,8 @@
 
 # Motion Planning for Autonomous Vehicles 
+
+## How to run the docker image 
+Refer to [:computer:](docker_image/README.md)
 ## Course Structure :space_invader:
 
 
