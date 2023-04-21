@@ -136,17 +136,25 @@ def main():
     x = [50, 59, 50, 57, 40, 40]
     y = [25, 12, 10, 2, 4, 14]
     ds = 0.1
+    
     rx, ry, ryaw, rk, s = calculate_reference_trajectory(x, y, ds=ds)
+    
+    selected_pathx = rx[np.where((s>=40) & (s<=45))]
+    selected_pathy = ry[np.where((s>=40) & (s<=45))]
     
     flg, ax = plt.subplots(1)
     plt.plot(x, y, "xb", label="input")
     plt.plot(rx, ry, "-r", label="spline")
+    plt.plot(selected_pathx, selected_pathy, "-b", label="selected")
     plt.grid(True)
     plt.axis("equal")
     plt.xlabel("x[m]")
     plt.ylabel("y[m]")
     plt.legend()
-
+    
+    
+    
+    
     flg, ax = plt.subplots(1)
     plt.plot(s, [math.degrees(iyaw) for iyaw in ryaw], "-r", label="yaw")
     plt.grid(True)

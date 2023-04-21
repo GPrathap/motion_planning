@@ -4,7 +4,7 @@
 #include <cubic_spline_interpolation.h>
 
 #include <motion_model.h>
-#include <lqr_controller_todo.h>
+#include <lqr_controller.h>
 
 template <typename T>
 std::ostream&  operator<<(std::ostream& os, const std::vector<std::complex<T>>& v) { 
@@ -32,6 +32,7 @@ int main()
     vec1D waypoints_x = {50, 59, 50, 57, 40, 40};
     vec1D waypoints_y = {25, 12, 10, 2, 4, 14};
 
+    robot_state final_state = {40, 14, 0};
     double ds = 0.1;
     Spline2D ref_traj;
     ref_traj.calculateReferenceTrajectory(waypoints_x, waypoints_y, ds);
@@ -62,6 +63,7 @@ int main()
     vec1D traversed_path_x, traversed_path_y;
 
     for(int i=0; i<T; i++){
+        
         robot_state current_state = robot.getCurrentState();
         std::cout<< current_state << std::endl;
         double e, k, ref_yaw;
@@ -70,12 +72,18 @@ int main()
         double ref_delta_f = atan2(L*k, 1.0);
         robot.getLinearModel(ref_delta_f, ref_yaw, A, B);
         robot_state reference_state = ref_traj.getState(s);
-        delta_f = lqr_controller.lqrControl(current_state, reference_state, A, B, Q, R);
+        auto control  = lqr_controller.lqrControl(current_state, reference_state, A, B, Q, R);
+        delta_f = control(1);
         delta_f += ref_delta_f;
         double a = lqr_controller.pControl(target_velocity, robot.v);
         robot.step(delta_f, a);
         traversed_path_x.push_back(robot.getCurrentState().x);
         traversed_path_y.push_back(robot.getCurrentState().y);
+
+        if((current_state-final_state).norm()<0.01){
+            std::cout<< "Robot reached to the target pose" << std::endl;
+            break;
+        }
     }
 
     ref_traj.saveVector(traversed_path_x, root_dir+"traversed_path_x.npy");

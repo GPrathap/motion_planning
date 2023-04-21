@@ -200,7 +200,6 @@ dt = 1.0 / control_frequency
 time = [0.0]
 
 df = np.array(current_state)
-
 quadcopter = QuadCopter() 
 def control_loop(i):
     state = np.array(df[i])

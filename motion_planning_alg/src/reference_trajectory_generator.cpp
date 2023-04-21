@@ -177,8 +177,6 @@ double Spline2D::calcYaw(double t){
 	return yaw;
 }
 
-
-
 double Spline2D::getKnotsLast(){
 	return knots.back();
 }

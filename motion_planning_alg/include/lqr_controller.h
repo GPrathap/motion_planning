@@ -48,7 +48,7 @@ class LQRController {
             return P_;
         }
 
-        double lqrControl(robot_state state, robot_state ref_state
+        Eigen::VectorXd lqrControl(robot_state state, robot_state ref_state
             , Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& Q, Eigen::MatrixXd& R){
                 Eigen::VectorXd x_diff = state - ref_state;
                 // std::cout<< "x_diff " << x_diff << std::endl;
@@ -58,7 +58,7 @@ class LQRController {
                 // std::cout<< K << std::endl;
                 auto u = K*x_diff;
                 // std::cout<< u << std::endl;
-                return u(1); 
+                return u; 
         }
 
         double pControl(const double desired, const double current){
