@@ -67,7 +67,6 @@ int main()
         double e, k, ref_yaw;
         int s;
         ref_traj.calculateTrackingError(current_state.x, current_state.y, e, k, ref_yaw, s);
-        ref_traj.calculateTrackingError(current_state.x, current_state.y, e, k, ref_yaw, s);
         double ref_delta_f = atan2(L*k, 1.0);
         robot.getLinearModel(ref_delta_f, ref_yaw, A, B);
         robot_state reference_state = ref_traj.getState(s);
