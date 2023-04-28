@@ -140,7 +140,7 @@ Refer to [:computer:](docker_image/README.md)
               <li>  B-spline curve fitting </li>
               <li> Minimum-snap curve fitting </li> 
 		</ul>
-- Frenet frame trajectory planning [:books:]
+- Frenet frame trajectory planning [:books:](lectures/mpav_frenet_frame.pdf)
 	<ul>
 		<li>Frenet frame </li>
         <li> Curve parameterization of the reference trajectory</li>
@@ -155,7 +155,7 @@ Refer to [:computer:](docker_image/README.md)
         <li> Frenet frame trajectory generation algorithm </li>
         <li> Calculate global trajectories </li>
 	</ul>
-- Timed Elastic Band [:books:]
+- Timed Elastic Band [:books:](lectures/mpav_timed_elastic_band.pdf)
     <ul>
         <li> Elastic band and time elastic band </li>
         <li> Way points and obstacles: polynomial approximation of constraints</li>
@@ -163,7 +163,7 @@ Refer to [:computer:](docker_image/README.md)
         <li> Velocity and acceleration generation </li>
         <li> Non-holonomic kinematics  </li>
     </ul>  
-- Gradient-based online trajectory generation [:books:]
+- Gradient-based online trajectory generation [:books:](lectures/mpav_gradient_based_trajectory_planning.pdf)
     <ul>
         <li> Piecewise polynomial trajectory generation </li>
         <li> Formulation of the objective function </li>
