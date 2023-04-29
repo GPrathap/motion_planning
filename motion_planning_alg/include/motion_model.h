@@ -68,7 +68,7 @@ class MotionModel {
             B.row(0) << delta_t*cos(ref_yaw), 0;
             B.row(1) << delta_t*sin(ref_yaw), 0;
             B.row(2) << delta_t*tan(ref_delta_f)/L
-                    , v*delta_t*(1.0/L*cos(ref_delta_f)*cos(ref_delta_f));
+                    , v*delta_t*(1.0/(L*cos(ref_delta_f)*cos(ref_delta_f)));
             
         }
 
